@@ -42,3 +42,6 @@ Thumbs.db
 backend/venv
 backend/__init__.py
 backend/__pycache__
+
+# Frontend
+frontend/frontend/node_modules
