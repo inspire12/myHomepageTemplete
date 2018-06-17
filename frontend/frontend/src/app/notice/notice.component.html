@@ -1,0 +1,51 @@
+<mat-tab-group>
+    <mat-tab label="동아리 공지사항">
+        <table border="1">
+            <tr>
+                <th scope="cols">#</th>
+                <th scope="cols">제목</th>
+                <th scope="cols">글쓴이</th>
+                <th scope="cols">글쓴 시간</th>
+                <th scope="cols">추천 수</th>
+                <th scope="cols">조회 수</th>
+            </tr>
+            <ng-container *ngFor="let element of contentData;let i = index">
+                <tr>
+                    <td scope="row">{{i + 1}}</td>
+                    <td scope="row"><a routerLink="">{{element.title}}</a></td>
+                    <td scope="row">{{element.user_id}}</td>
+                    <td scope="row">{{element.created_data}}</td>
+                    <td scope="row">{{element.recommend.length}}</td>
+                    <td scope="row">{{element.hit}}</td>
+                </tr>
+            </ng-container>
+
+        </table>
+
+
+    </mat-tab>
+    <mat-tab label="학과 공지">
+        <table>
+            <ng-container *ngFor="let element of contentData;let i = index">
+                <tr>
+                    <th scope="cols">#</th>
+                    <th scope="cols">제목</th>
+                    <th scope="cols">글쓴이</th>
+                    <th scope="cols">글쓴 시간</th>
+                    <th scope="cols">추천 수</th>
+                    <th scope="cols">조회 수</th>
+                </tr>
+                <tr>
+                    <td scope="row">{{i + 1}}</td>
+                    <td scope="row"><a routerLink="">{{element.title}}</a></td>
+                    <td scope="row">{{element.user_id}}</td>
+                    <td scope="row">{{element.created_data}}</td>
+                    <td scope="row">{{element.recommend.length}}</td>
+                    <td scope="row">{{element.hit}}</td>
+                </tr>
+            </ng-container>
+
+        </table>
+
+    </mat-tab>
+</mat-tab-group>
