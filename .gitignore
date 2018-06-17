@@ -1,12 +1,12 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
 # compiled output
-/dist
-/tmp
-/out-tsc
+frontend/frontend/dist
+frontend/frontend/tmp
+frontend/frontend/out-tsc
 
 # dependencies
-/node_modules
+frontend/frontend/node_modules
 
 # IDEs and editors
 /.idea
@@ -29,7 +29,7 @@
 /connect.lock
 /coverage
 /libpeerconnection.log
-npm-debug.log
+frontend/frontend/npm-debug.log
 yarn-error.log
 testem.log
 /typings
@@ -45,4 +45,3 @@ backend/__pycache__
 
 # Frontend
 frontend/frontend/node_modules
-frontend/frontend/package-lock.json
