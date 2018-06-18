@@ -36,6 +36,7 @@ class SignUp(Resource):
     def put(self):
         return {'msg': 'ok'}
 
+
 @ns.route('/login')
 class Login(Resource):
     def get(self):
@@ -45,17 +46,3 @@ class Login(Resource):
         print(collection.find())
         return collection.find(), HTTPStatus.OK
 
-    def post(self):
-        client = MongoClient('localhost', 27017)
-        db = client.user
-        collection = db.user
-
-    def delete(self):
-        client = MongoClient('localhost', 27017)
-        db = client.user
-        collection = db.user
-
-    def put(self):
-        client = MongoClient('localhost', 27017)
-        db = client.user
-        collection = db.user

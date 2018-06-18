@@ -1,51 +1,69 @@
-<mat-tab-group>
-    <mat-tab label="동아리 공지사항">
-        <table border="1">
-            <tr>
-                <th scope="cols">#</th>
-                <th scope="cols">제목</th>
-                <th scope="cols">글쓴이</th>
-                <th scope="cols">글쓴 시간</th>
-                <th scope="cols">추천 수</th>
-                <th scope="cols">조회 수</th>
-            </tr>
-            <ng-container *ngFor="let element of contentData;let i = index">
-                <tr>
-                    <td scope="row">{{i + 1}}</td>
-                    <td scope="row"><a routerLink="">{{element.title}}</a></td>
-                    <td scope="row">{{element.user_id}}</td>
-                    <td scope="row">{{element.created_data}}</td>
-                    <td scope="row">{{element.recommend.length}}</td>
-                    <td scope="row">{{element.hit}}</td>
-                </tr>
-            </ng-container>
+<div class="container">
+    <mat-tab-group>
+        <mat-tab label="동아리 공지사항">
 
-        </table>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="cols">#</th>
+                        <th scope="cols">글 주제</th>
+                        <th scope="cols">글쓴이</th>
+                        <th scope="cols">제목</th>
+                        <th scope="cols">글쓴 시간</th>
+                        <th scope="cols">추천 수</th>
+                        <th scope="cols">조회 수</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <ng-container *ngFor="let element of contentData;let i = index">
+                        <tr>
+                            <td scope="row">{{i + 1}}</td>
+                            <td scope="row">테스트</td>
+                            <td scope="row">{{element.user_id}}</td>
+                            <!--['view/',element.index]-->
+                            <td scope="row"><a routerLink="/view">{{element.title}}</a></td>
+                            <td scope="row">{{element.created_data}}</td>
+                            <td scope="row"><span class="badge">{{element.recommend.length}}</span></td>
+                            <td scope="row">{{element.hit}}</td>
+                        </tr>
+                    </ng-container>
+                    </tbody>
+                </table>
 
+                <button mat-raised-button routerLink="/form"> 글 쓰기</button>
+            </div>
 
-    </mat-tab>
-    <mat-tab label="학과 공지">
-        <table>
-            <ng-container *ngFor="let element of contentData;let i = index">
-                <tr>
-                    <th scope="cols">#</th>
-                    <th scope="cols">제목</th>
-                    <th scope="cols">글쓴이</th>
-                    <th scope="cols">글쓴 시간</th>
-                    <th scope="cols">추천 수</th>
-                    <th scope="cols">조회 수</th>
-                </tr>
-                <tr>
-                    <td scope="row">{{i + 1}}</td>
-                    <td scope="row"><a routerLink="">{{element.title}}</a></td>
-                    <td scope="row">{{element.user_id}}</td>
-                    <td scope="row">{{element.created_data}}</td>
-                    <td scope="row">{{element.recommend.length}}</td>
-                    <td scope="row">{{element.hit}}</td>
-                </tr>
-            </ng-container>
+        </mat-tab>
+        <mat-tab label="학과 공지">
 
-        </table>
+            <div class="container">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Firstname</th>
+                            <th>Lastname</th>
+                            <th>Age</th>
+                            <th>City</th>
+                            <th>Country</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Anna</td>
+                            <td>Pitt</td>
+                            <td>35</td>
+                            <td>New York</td>
+                            <td>USA</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
 
-    </mat-tab>
-</mat-tab-group>
+        </mat-tab>
+    </mat-tab-group>
+</div>

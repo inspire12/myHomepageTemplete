@@ -19,12 +19,15 @@ export class NoticeComponent implements OnInit {
     this.loadContentList();
   }
 
-  loadContentList() {
+  loadContentList(): void {
     const prefix = 'board/list?board_type=notice';
     this.url = this.baseUrl + prefix;
-    console.log(this.url);
     this.http.get(this.url).toPromise().then((data) => {
       this.contentData = Object.values(data);
     });
+  }
+
+  toFormContent(): void {
+
   }
 }

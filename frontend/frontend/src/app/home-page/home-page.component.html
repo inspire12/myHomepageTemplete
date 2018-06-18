@@ -57,15 +57,18 @@
       <p>로그인, 개인정보</p>
       <div class="login-form">
         <mat-form-field appearance="legacy">
-          <input matInput placeholder="아이디">
+          <input matInput [(ngModel)]="user_id" placeholder="아이디">
           <mat-icon matSuffix> save</mat-icon>
         </mat-form-field>
         <mat-form-field>
-          <input matInput placeholder="비밀번호" [type]="ngHide ? 'password' : 'text'">
+          <input matInput [(ngModel)]="passwd" placeholder="비밀번호" [type]="ngHide ? 'password' : 'text'">
           <mat-icon matSuffix (click)="ngHide=!ngHide">
             {{ ngHide ? 'visibility' : 'visibility_off' }}
           </mat-icon>
         </mat-form-field>
+
+        <button mat-button (click)="ngLogin()">로그인</button>
+        <button mat-button>가입</button>
       </div>
         </ng-container>
     </div>

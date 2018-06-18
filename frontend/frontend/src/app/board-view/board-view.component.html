@@ -1,0 +1,57 @@
+<div class="container-contact100">
+
+    <div class="wrap-contact100">
+				<span class="contact100-form-title">
+					글쓰기
+				</span>
+
+        <div class="wrap-input100" style="width: 50%; display:inline-block">
+            <div class="input100">
+                글
+            </div>
+            <span class="focus-input100"></span>
+        </div>
+        <div class="wrap-input100" style="width: 50%; display:inline-block">
+            <div class="input100">
+                글
+            </div>
+            <span class="focus-input100"></span>
+        </div>
+        <div class="wrap-input100">
+            <div class="input100 h-100"> 글</div>
+            <span class="focus-input100"></span>
+        </div>
+
+        <div class="container-contact100-form-btn">
+            <button class="contact100-form-btn">
+                수정
+            </button>
+            <button class="contact100-form-btn">
+                삭제
+            </button>
+
+        </div>
+        <!-- 댓글 -->
+        <div class="contact100-more">
+            댓글 읽기
+        </div>
+        <form class="contact100-form validate-form" (ngSubmit)="saveComment()">
+				<span class="contact100-more">
+					댓글 쓰기
+				</span>
+
+
+            <div class="wrap-input100 validate-input" data-validate="Please enter your message">
+                <textarea class="input100" name="message" placeholder="Your Message"
+                          [(ngModel)]="comment" ></textarea>
+                <span class="focus-input100"></span>
+            </div>
+
+            <div class="container-contact100-form-btn">
+                <button class="contact100-form-btn">
+                    저장
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

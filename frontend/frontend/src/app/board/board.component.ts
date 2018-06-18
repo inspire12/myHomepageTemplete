@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {HttpClientModule, HttpClient} from '@angular/common/http';
+import {HttpClientModule, HttpClient, HttpParams} from '@angular/common/http';
 
 
 @Component({
@@ -9,24 +9,36 @@ import {HttpClientModule, HttpClient} from '@angular/common/http';
 })
 export class BoardComponent implements OnInit {
 
-  constructor(public http: HttpClient) {
-  }
-
-  public dataSource: object;
-  private base: string;
+  private baseUrl: string;
   private url: string;
+  public contentData: object;
+  public depth: number[][];
+
+  constructor(private http: HttpClient) {
+    this.baseUrl = 'http://127.0.0.1:5001/';
+  }
 
   ngOnInit() {
-    // 나중에 환경변수(서비스 프로바이더)로 일괄 변경 가능하게
-    this.base = 'localhost:27017';
-
+    this.loadContentList();
   }
 
-  public ngLoadContentList(): void {
-    this.http.get(this.url).toPromise().then((data) => {
+  loadContentList(): void {
+    const prefix = 'board/list';
+    this.url = this.baseUrl + prefix;
+    const param = new HttpParams().set('board_type', 'team');
+    this.http.get(this.url, {params: param}).toPromise().then((data) => {
 
-    }).catch(error => {
+      for (const index in data) {
+        if (data !== undefined) {
+          for (let i = 0; i < +data[index]['depth'] - 1; i++) {
+            data[index]['title'] = ' ㄴ ' + data[index]['title'];
+          }
+          console.log(data[index]['_id']);
+        }
+      }
+      this.contentData = Object.values(data);
 
+      console.log(this.contentData);
     });
   }
 

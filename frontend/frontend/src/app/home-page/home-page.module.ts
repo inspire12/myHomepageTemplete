@@ -2,13 +2,15 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {HomePageComponent} from './home-page.component';
 import {MaterialModule} from '../material.module';
-import {HttpClient, HttpClientModule} from "@angular/common/http";
-
+import {HttpClient, HttpClientModule} from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
     imports: [
         CommonModule,
         MaterialModule,
-        HttpClientModule
+        HttpClientModule,
+        FormsModule,
+        ReactiveFormsModule
     ],
     declarations: [HomePageComponent],
     exports: [HomePageComponent],

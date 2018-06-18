@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="cols">#</th>
+                <th scope="cols">글 주제</th>
+                <th scope="cols">글쓴이</th>
+                <th scope="cols">제목</th>
+                <th scope="cols">글쓴 시간</th>
+                <th scope="cols">추천 수</th>
+                <th scope="cols">조회 수</th>
+            </tr>
+            </thead>
+            <tbody>
+            <ng-container *ngFor="let element of contentData;let i = index">
+                <tr>
+
+                    <td scope="row">{{i + 1}}</td>
+                    <td scope="row">테스트</td>
+                    <td scope="row">{{element.user_id}}</td>
+                    <!--['view/',element.index]-->
+                    <td scope="row"><a routerLink='["/view","board_type=team"]'>{{element.title}}</a></td>
+                    <td scope="row">{{element.created_data}}</td>
+                    <td scope="row"><span class="badge">{{element.recommend.length}}</span></td>
+                    <td scope="row">{{element.hit}}</td>
+                </tr>
+            </ng-container>
+            </tbody>
+        </table>
+    </div>
+</div>
