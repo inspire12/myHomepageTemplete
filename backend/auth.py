@@ -31,18 +31,13 @@ class SignUp(Resource):
         return data
 
     def delete(self):
+        '''
+        탈퇴 기능 구현
+        :return:
+        '''
         return {'msg': 'ok'}
 
     def put(self):
         return {'msg': 'ok'}
 
-
-@ns.route('/login')
-class Login(Resource):
-    def get(self):
-        client = MongoClient('localhost', 27017)
-        db = client.user
-        collection = db.user
-        print(collection.find())
-        return collection.find(), HTTPStatus.OK
 

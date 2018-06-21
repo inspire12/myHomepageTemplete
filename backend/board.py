@@ -1,12 +1,9 @@
 from flask import request, jsonify
 from flask_restplus import Resource, api, Namespace
 from flask_restplus._http import HTTPStatus
-from pymongo import MongoClient
 
-import utils.boardUtils
 
 from backend.utils.boardUtils import BoardUtils
-from backend.utils.commonUtils import CommonUtils
 
 ns = Namespace('board', description='board')
 

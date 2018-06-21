@@ -29,6 +29,7 @@ def token_required(f):
         return f(*args, **kwargs)
     return decorated
 
+@token_required
 @app.route('/unprotected')
 def unprotected():
     '''
@@ -64,9 +65,8 @@ def login():
 CORS(app)
 title = 'My Homepage'
 api = Api(app=app, version='1.0', title=title, description=title)
-api.add_namespace(board, '/board')
-api.add_namespace(user, '/user')
-api.add_namespace(comments, '/comments')
-
+api.add_namespace(board, '/v1.0/board')
+api.add_namespace(user, '/v1.0/user')
+api.add_namespace(comments, '/v1.0/comments')
 if __name__ == '__main__':
     app.run(debug=True, port=5001)

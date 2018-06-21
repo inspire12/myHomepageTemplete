@@ -4,6 +4,7 @@
     <li [ngClass]="{'active': selectTab('home')}" ><a routerLink="/home" routerLinkActive="active" (click)="tabFocus('home')">Main</a></li>
     <li [ngClass]="{'active': selectTab('notice')}"><a routerLink="/notice" routerLinkActive="active" (click)="tabFocus('notice')">공지사항</a></li>
     <li [ngClass]="{'active': selectTab('board')}"><a routerLink="/board" routerLinkActive="active" (click)="tabFocus('board')">팀 게시판</a></li>
+    <li [ngClass]="{'active': selectTab('webapp')}"><a routerLink="/webapp" routerLinkActive="active" (click)="tabFocus('webapp')">웹앱 게시판</a></li>
     <li [ngClass]="{'active': selectTab('')}"><a (click)="selectTab('share')">개발 팁 공유</a></li>
     <li [ngClass]="{'active': selectTab('')}"><a>가입인사</a></li>
     <li [ngClass]="{'active': selectTab('')}"><a>ANT 웹 앱</a></li>

@@ -10,8 +10,12 @@ import {FormGroup, FormControl, Validators} from '@angular/forms';
 export class HomePageComponent implements OnInit {
 
   private url;
-  public user_id;
-  public passwd;
+  public userId;
+  public userPasswd;
+  public noticeList;
+  public teamList;
+
+
   public ngHide;
   constructor(private http: HttpClient) {
     this.url = 'https://localhost:5001';
@@ -22,13 +26,17 @@ export class HomePageComponent implements OnInit {
     //this.getUserInfo();
   }
 
+  public ngLoadPosts(){
+
+  }
+
   public ngLogin(): void {
 
-
     const postfix = '/login';
+    //ngModel 로 바인딩
     const param = {
-      'user_id' : this.user_id,
-      'passwd' : this.passwd
+      'user_id' : this.userId,
+      'user_passwd' : this.userPasswd
     };
     console.log(param)
     this.http.post(this.url + postfix, param).toPromise().then(response => {
