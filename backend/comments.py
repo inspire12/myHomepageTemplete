@@ -11,7 +11,7 @@ ns = Namespace('comments', description='댓글')
 @ns.route('/list')
 class CommentsList(CommonUtils):
     def get(self):
-        self.openMongoDB(collection_name='board')
+
         return {'msg':'ok'}
 
 

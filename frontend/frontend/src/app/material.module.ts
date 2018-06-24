@@ -55,6 +55,9 @@ import {
     MatTooltipModule,
     MatTreeModule,
     ScrollDispatchModule,
+        MatFormFieldModule,
+        MatInputModule
+
   ],
   exports: [
     A11yModule,

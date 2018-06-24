@@ -29,16 +29,16 @@ export class HomePageComponent implements OnInit {
   public ngLoadPosts(){
 
   }
-
+  //
   public ngLogin(): void {
 
-    const postfix = '/login';
+    const postfix = '/v1.0/user/login';
     //ngModel 로 바인딩
     const param = {
       'user_id' : this.userId,
       'user_passwd' : this.userPasswd
     };
-    console.log(param)
+    console.log(param);
     this.http.post(this.url + postfix, param).toPromise().then(response => {
       console.log(response);
     });

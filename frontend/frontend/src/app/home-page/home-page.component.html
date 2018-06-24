@@ -23,7 +23,17 @@
 
     </div>
     <div class="card-default1">
+      <p>로그인 </p>
 
+      <mat-form-field>
+        <input matInput required placeholder="로그인">
+     </mat-form-field>
+
+      <mat-form-field>
+        <input matInput type="password" required placeholder="비밀번호">
+     </mat-form-field>
+
+        <button mat-button (click)="ngLogin()"> <i>save</i></button>
     </div>
   </div>
   <!--가로 배열-->

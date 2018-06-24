@@ -2,13 +2,14 @@ from flask_restplus import Namespace
 
 from backend.utils.commonUtils import CommonUtils
 
-ns = Namespace('board', description='게시글 목록')
+ns = Namespace('user', description='유저 목록')
 
 
-class BoardUtils(CommonUtils):
+class UserUtils(CommonUtils):
 
     @staticmethod
     def get_index(collection, board_type):
+
         cursor = collection.find({'board_type': board_type}).sort(['index', 1])
         index = 0
         for row in cursor:
@@ -16,19 +17,9 @@ class BoardUtils(CommonUtils):
             break
         return index
 
-    def content_list_view(self, board_type):
-        '''
-        board에서 게시글 목록을 보여줌
-        :return:
-        '''
-        collection = self.openMongoDB('board')
-        res = {}
-        cursor = collection.find({'board_type':board_type}).sort([("_id", 1)])
-        for row in cursor:
-            res[row['_id']] = row
-        print(res)
-        cursor.close()
-        return res
+    def user_insert(self, user_data):
+        connect, collection = self.openMongoDB(collection_name='user')
+        return user_data
 
     def content_view(self, board_type, index):
         collection = self.openMongoDB('board')
