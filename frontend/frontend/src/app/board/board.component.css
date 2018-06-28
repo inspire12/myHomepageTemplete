@@ -1,0 +1,12 @@
+.active{
+    color:#007bff;
+    cursor: none;
+
+}
+
+
+.paginator > li {display:inline; list-style:none; margin:1px;
+    cursor: pointer;}
+ul.paginator {
+    text-align: center;
+}

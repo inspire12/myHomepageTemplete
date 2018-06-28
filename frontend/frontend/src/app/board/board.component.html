@@ -1,5 +1,6 @@
 <div class="container">
     <div class="table-responsive">
+
         <table class="table">
             <thead>
             <tr>
@@ -28,5 +29,11 @@
             </ng-container>
             </tbody>
         </table>
+        <!--paginate-->
+        <ul class="paginator">
+            <li> < </li>
+            <li class="" [ngClass]="{'active': selectPage(element)}" *ngFor="let element of ngPageNumber"> <a (click)="clickPage(element)">{{element+1}} </a></li>
+            <li> > </li>
+        </ul>
     </div>
 </div>
