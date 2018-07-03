@@ -7,6 +7,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {BoardViewComponent} from './board-view/board-view.component';
 import {BoardFormComponent} from './board-form/board-form.component';
 import {WebAppComponent} from './web-app/web-app.component';
+import { SignupComponent } from './signup/signup.component';
 
 
 const appRoutes: Routes = [
@@ -20,6 +21,7 @@ const appRoutes: Routes = [
 const appChildRoutes: Routes = [
   {path: 'view/:id', component: BoardViewComponent},
   {path: 'form', component: BoardFormComponent},
+  {path: 'signup', component: SignupComponent}
 ];
 
 @NgModule({

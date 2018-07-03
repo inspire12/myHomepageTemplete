@@ -14,6 +14,7 @@ import {NoticeModule} from './notice/notice.module';
 import {AppRoutingModule} from './app-routing.module';
 import {RouterModule, Routes} from '@angular/router';
 import {WebAppModule} from './web-app/web-app.module';
+import { SignupModule } from './signup/signup.module';
 
 
 
@@ -30,7 +31,8 @@ import {WebAppModule} from './web-app/web-app.module';
         NoticeModule,
         WebAppModule,
         AppRoutingModule,
-        RouterModule
+        RouterModule,
+        SignupModule
     ],
     providers: [],
     bootstrap: [AppComponent]

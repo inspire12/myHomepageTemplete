@@ -1,0 +1,8 @@
+<div class="signup-container">
+    <form #f="ngForm">
+        <label name="userId">아이디</label><input name="userId" [(ngModel)]="userInfo.userId" [ngModelOptions]="{standalone: true}">
+        <div>
+            <button mat-raised-button color="primary" (click)="ngSignup()"><i>회원가입</i></button>
+        </div>
+    </form>
+</div>
