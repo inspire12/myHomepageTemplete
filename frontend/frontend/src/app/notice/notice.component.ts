@@ -1,18 +1,20 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import { ServiceProviderService } from '../service-provider.service';
 
 @Component({
   selector: 'app-notice',
   templateUrl: './notice.component.html',
-  styleUrls: ['./notice.component.css']
+  styleUrls: ['./notice.component.css'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class NoticeComponent implements OnInit {
 
   private baseUrl: string;
   private url: string;
   public contentData: object;
-  constructor(private http: HttpClient) {
-    this.baseUrl = 'http://127.0.0.1:5001/';
+  constructor(private http: HttpClient, private serviceProvider: ServiceProviderService) {
+    this.baseUrl = serviceProvider.url;
   }
 
   ngOnInit() {
