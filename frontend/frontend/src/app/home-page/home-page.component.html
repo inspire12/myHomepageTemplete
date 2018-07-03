@@ -1,42 +1,60 @@
 <!--새로 배열-->
-<div>
+<div class="wrap">
   <i class="material-icons center" style="">expand_more</i>
-  <!--가로 배열-->
+  <!--가로 첫 열-->
   <div class="row-container">
+    <!--공지사항-->
     <div class="card-default2">
       <p>공지사항</p>
       <table>
+        <colgroup>
+          <col width="10%">
+          <col width="20%">
+          <col>
+          <col width="20%">
+          <col width="20%">
+        </colgroup>
         <thead>
           <tr>
-            <td>#</td> <td>말머리</td> <td width="300px">제  목</td> <td> 글쓴이 </td><td>글쓴 시간</td>
+            <td>#</td>
+            <td>말머리</td>
+            <td>제  목</td>
+            <td> 글쓴이 </td>
+            <td>글쓴 시간</td>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td></td>
-          </tr>
+
         </tbody>
       </table>
     </div>
+    <!--//공지사항-->
+    <!--홍보-->
     <div class="card-default1">
       <p>홍보</p>
 
     </div>
+    <!--//홍보-->
+    <!--로그인 개인정보-->
     <div class="card-default1">
       <p>로그인 </p>
 
       <mat-form-field>
-        <input matInput required placeholder="로그인">
+        <input matInput required placeholder="로그인" [(ngModel)]="userId">
      </mat-form-field>
 
       <mat-form-field>
-        <input matInput type="password" required placeholder="비밀번호">
+        <input matInput type="password" required placeholder="비밀번호" [(ngModel)]="userPasswd">
      </mat-form-field>
 
-        <button mat-button (click)="ngLogin()"> <i>save</i></button>
+        <button mat-raised-button color="primary" (click)="ngLogin()"> <i>Login</i></button>
+        <button mat-raised-button color="accent" routerLink="/signup"> <i>Signup</i></button>
+
     </div>
+    <!--//로그인 개인정보-->
   </div>
-  <!--가로 배열-->
+  <!--//가로 첫 열-->
+  <!--가로 둘 열-->
   <div class="row-container">
     <div class="card-default2">
       팀 게시판
@@ -56,15 +74,16 @@
       가입 인사
     </div>
     <div class="card-default1">
-
+      공모전
     </div>
     <div class="card-default1">
-
+      링크
     </div>
   </div>
 
   <div class="card-default1" style="height:50px;">
     footer
   </div>
+
 </div>
 

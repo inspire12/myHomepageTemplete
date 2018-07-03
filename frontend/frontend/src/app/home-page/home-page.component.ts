@@ -1,6 +1,9 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Inject} from '@angular/core';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {FormGroup, FormControl, Validators} from '@angular/forms';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import { ServiceProviderService } from '../service-provider.service';
+
 
 @Component({
   selector: 'app-home-page',
@@ -17,8 +20,8 @@ export class HomePageComponent implements OnInit {
 
 
   public ngHide;
-  constructor(private http: HttpClient) {
-    this.url = 'https://localhost:5001';
+  constructor(private http: HttpClient, public dialog: MatDialog, private serviceProvider: ServiceProviderService) {
+    this.url = serviceProvider.url;
     this.ngHide = true;
   }
 
@@ -26,7 +29,7 @@ export class HomePageComponent implements OnInit {
     //this.getUserInfo();
   }
 
-  public ngLoadPosts(){
+  public ngLoadPosts() {
 
   }
   //
@@ -44,6 +47,10 @@ export class HomePageComponent implements OnInit {
     });
   }
 
+  public ngSignUp(): void {
+    // modal 로 회원가입 페이지 생성
+
+  }
   public getUserInfo(): void {
     this.http.get(this.url).toPromise().then(data => {
       console.log(data);
@@ -51,3 +58,4 @@ export class HomePageComponent implements OnInit {
     });
   }
 }
+
