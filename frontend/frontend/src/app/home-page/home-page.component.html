@@ -36,7 +36,8 @@
     </div>
     <!--//홍보-->
     <!--로그인 개인정보-->
-    <div class="card-default1">
+
+    <div class="card-default1" *ngIf="!isLogin; else privatePage">
       <p>로그인 </p>
 
       <mat-form-field>
@@ -49,8 +50,15 @@
 
         <button mat-raised-button color="primary" (click)="ngLogin()"> <i>Login</i></button>
         <button mat-raised-button color="accent" routerLink="/signup"> <i>Signup</i></button>
-
     </div>
+    <ng-template #privatePage>
+      <div class="card-default1">
+        <p>{{userId}} 님 환영합니다.</p>
+        <mat-form-field>
+          <button mat-raised-button color="primary"> 개인 정보 수정</button>
+     </mat-form-field>
+      </div>
+    </ng-template>
     <!--//로그인 개인정보-->
   </div>
   <!--//가로 첫 열-->

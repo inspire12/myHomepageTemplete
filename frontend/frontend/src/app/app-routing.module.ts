@@ -15,13 +15,14 @@ const appRoutes: Routes = [
   {path: 'home', component: HomePageComponent},
   {path: 'notice', component: NoticeComponent},
   {path: 'board', component: BoardComponent},
-  {path: 'webapp', component: WebAppComponent}
-];
+  {path: 'webapp', component: WebAppComponent},
+  {path: 'signup', component: SignupComponent},
+  {path: '**', redirectTo: ''}
+  ];
 
 const appChildRoutes: Routes = [
   {path: 'view/:id', component: BoardViewComponent},
-  {path: 'form', component: BoardFormComponent},
-  {path: 'signup', component: SignupComponent}
+  {path: 'form', component: BoardFormComponent}
 ];
 
 @NgModule({

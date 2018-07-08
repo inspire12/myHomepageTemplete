@@ -17,7 +17,7 @@ class SignUp(UserUtils):
         """
         user_data = request.get_json(silent=True, force=True)
         print(user_data)
-        res = self.user_insert(user_data)
+        res = self.insert_user(user_data)
         return res
 
     @ns.param('user_id','','')
@@ -38,4 +38,13 @@ class SignUp(UserUtils):
         data = request.get_json(silent=True, force=True)
         return {'msg': 'ok'}
 
+
+@ns.route('/login')
+class Login(UserUtils):
+    @ns.param('body','', 'body')
+    def post(self):
+        user_data = request.get_json(silent=True, force=True)
+        res = self.login(user_data)
+
+        return res
 

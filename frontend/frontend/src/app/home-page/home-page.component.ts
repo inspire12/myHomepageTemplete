@@ -15,6 +15,7 @@ export class HomePageComponent implements OnInit {
   private url;
   public userId;
   public userPasswd;
+  public isLogin: boolean;
   public noticeList;
   public teamList;
 
@@ -23,6 +24,7 @@ export class HomePageComponent implements OnInit {
   constructor(private http: HttpClient, public dialog: MatDialog, private serviceProvider: ServiceProviderService) {
     this.url = serviceProvider.url;
     this.ngHide = true;
+    this.isLogin = false;
   }
 
   ngOnInit() {
@@ -35,15 +37,20 @@ export class HomePageComponent implements OnInit {
   //
   public ngLogin(): void {
 
-    const postfix = '/v1.0/user/login';
-    //ngModel 로 바인딩
+    const postfix = '/user/login';
+    // ngModel 로 바인딩
     const param = {
       'user_id' : this.userId,
       'user_passwd' : this.userPasswd
     };
     console.log(param);
-    this.http.post(this.url + postfix, param).toPromise().then(response => {
-      console.log(response);
+    this.http.post(this.url + postfix, param)
+      .toPromise()
+      .then(response => {
+        console.log(response);
+        this.isLogin = response['res'];
+        localStorage.setItem('userId', this.userId);
+
     });
   }
 

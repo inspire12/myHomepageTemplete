@@ -1,6 +1,55 @@
 <div class="signup-container">
     <form #f="ngForm">
-        <label name="userId">아이디</label><input name="userId" [(ngModel)]="userInfo.userId" [ngModelOptions]="{standalone: true}">
+        <div>
+            <label name="userId">아이디</label>
+            <input name="userId" required minlength="3" maxlength="10" pattern="^[0-9]$" [(ngModel)]="userInfo.userId" #userNgId = ngModel (click)="log(userNgId)" [ngModelOptions]="{standalone: true}">
+            <span *ngIf="userNgId.touched && !userNgId.valid">
+                <span *ngIf="userNgId.touched && userNgId.errors['required']"> 아이디를 입력하셔야합니다. </span>
+                <span *ngIf="userNgId.touched && userNgId.errors['minlength']"> 3글자 보다 많아야합니다. </span>
+                <span *ngIf="userNgId.touched && userNgId.errors['maxlength']"> 10글자 보다 적어야합니다. </span>
+                <span *ngIf="userNgId.touched && userNgId.errors['pattern']"> 영어 숫자 조합으로 만드세요 </span>
+
+            </span>
+        </div>
+        <div>
+            <label name="userPasswd">비밀번호</label>
+            <input ngModel  name="userPasswd" required [(ngModel)]="userInfo.userPasswd" #userPasswd = ngModel (click)="log(userPasswd)" [ngModelOptions]="{standalone: true}">
+        </div>
+        <div>
+            <label name="userPasswd2">비밀번호 확인</label>
+            <input name="userPasswd2" required [(ngModel)]="userInfo.userPasswd2" #userPasswd2 = ngModel (click)="log(userPasswd2)"  [ngModelOptions]="{standalone: true}">
+        </div>
+        <div>
+            <label name="userName">사용자 이름 </label>
+            <input name="userName" required [(ngModel)]="userInfo.userName" [ngModelOptions]="{standalone: true}">
+        </div>
+        <div>
+            <label name="userStudentNumber">학번 </label>
+            <input ngModel name="userStudentNumber" minlength="9" maxlength="9" [(ngModel)]="userInfo.userStudentNumber" #userNgStudentNumber = ngModel (click)="log(userNgStudentNumber)" [ngModelOptions]="{standalone: true}">
+            <span *ngIf="userNgStudentNumber.touched && !userNgStudentNumber.valid">
+                <span *ngIf="userNgStudentNumber.touched && userNgStudentNumber.errors['maxlength']"> 학번은 전체를 넣어주세요. </span>
+            </span>
+        </div>
+        <div>
+            <label name="userEmail">이메일 </label>
+            <input name="userEmail" required [(ngModel)]="userInfo.userEmail" [ngModelOptions]="{standalone: true}">
+        </div>
+        <div>
+            <label name="location">사는 곳</label>
+            <input name="location" [(ngModel)]="userInfo.location" [ngModelOptions]="{standalone: true}">
+        </div>
+
+        <div>
+            <label name="hometown">고향</label>
+            <input name="hometown" [(ngModel)]="userInfo.hometown" [ngModelOptions]="{standalone: true}">
+        </div>
+
+         <div>
+            <label name="level">학적</label>
+            <input type="text" name="level" required [(ngModel)]="userInfo.level" [ngModelOptions]="{standalone: true}">
+
+        </div>
+
         <div>
             <button mat-raised-button color="primary" (click)="ngSignup()"><i>회원가입</i></button>
         </div>

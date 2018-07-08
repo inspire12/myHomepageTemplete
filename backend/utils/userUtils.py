@@ -17,9 +17,40 @@ class UserUtils(CommonUtils):
             break
         return index
 
-    def user_insert(self, user_data):
-        connect, collection = self.openMongoDB(collection_name='user')
-        return user_data
+    def insert_user(self, user_data):
+        '''
+        id, passwd 를 통해 로그인 토큰 발급
+        :param user_data:
+        :return:
+        '''
+        collection = self.openMongoDB(collection_name='user')
+
+        found = collection.find_one({'_id':user_data['_id']})
+        if found is None:
+            collection.insert(user_data)
+            return {'res': True}
+        return {'res': False}
+
+    def login(self, data):
+        '''
+        로그인 기능 구현
+        :param data:
+        :return:
+        '''
+
+        collection = self.openMongoDB(collection_name='user')
+
+        cursor = collection.find_one({'_id': data.get('user_id')})
+
+        if cursor is None:
+            return {'res':False}
+
+        if (cursor.get('passwd') != data.get('user_passwd')):
+            return {'res': False}
+
+        return {'res': True}
+
+
 
     def content_view(self, board_type, index):
         collection = self.openMongoDB('board')
@@ -31,7 +62,7 @@ class UserUtils(CommonUtils):
         cursor.close()
         return res
 
-    def update_content(self, data):
+    def user_update(self, data):
         '''
         @TODO 인증 추가
         :param data:
@@ -49,7 +80,7 @@ class UserUtils(CommonUtils):
             response = collection.update({'_id':data['_id']},data, upsert=True)
         return response
 
-    def delete_content(self, post_id):
+    def delete_user(self, post_id):
         '''
         글삭제 기능, 글 id 만 있으면 되게 하자
         @TODO 인증 추가
